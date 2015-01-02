@@ -3,8 +3,9 @@ http = require 'http'
 tests = require './network'
 path = require 'path'
 
+# example of testing a websocket runtime based on nodejs (e.g. noflo):
+###
 server = null
-
 tests.testRuntime( 'noflo-nodejs',
   (connectClient) ->
     server = http.createServer ->
@@ -13,23 +14,24 @@ tests.testRuntime( 'noflo-nodejs',
     server.listen 8080, connectClient
   ->
     server.close()
-  8080
+  8080  # port
 )
+###
 
-# example of a runtime that is already running:
+
+# example of testing a websocket runtime that is already running:
 ###
 tests.testRuntime( 'protoflo',
   (connectClient) ->
     connectClient()
   ->
-  3569
+  3569  # port
 )
 ###
 
-# WIP of a runtime that starts a process:
+# example testing a websocket runtime by starting a server process (WIP):
 ###
 spawn = require('child_process').spawn
-
 child = null
 tests.testRuntime( 'protoflo',
   (connectClient) ->
@@ -37,6 +39,6 @@ tests.testRuntime( 'protoflo',
     setTimeout(connectClient, 300)
   ->
     child.kill("SIGKILL")
-  3569
+  3569  # port
 )
 ###
