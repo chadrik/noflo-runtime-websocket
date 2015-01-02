@@ -3,6 +3,8 @@ noflo-runtime-websocket
 
 NoFlo runtime for execution on Node.js over WebSockets
 
+This branch is an experiment in getting the noflo-runtime-websocket tests to work for any websocket runtime.
+
 installing
 ----------
 
@@ -25,7 +27,7 @@ installing
 testing a runtime
 -----------------
 
-1. Edit `spec/TestNetwork.coffee`. Uncomment the following code and change the name and port to match your runtime:
+1. Edit `spec/TestNetwork.coffee`. Uncomment the following code (by removing the coffeescript block comments `###`) and change the name and port to match your runtime:
 
   ```coffeescript
   tests.testRuntime( 'protoflo',
@@ -40,6 +42,6 @@ testing a runtime
 3. Run the tests:
 
   ```
-  npm tests
+  npm test
   ```
 
