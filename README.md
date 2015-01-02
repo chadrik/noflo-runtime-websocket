@@ -6,11 +6,21 @@ NoFlo runtime for execution on Node.js over WebSockets
 installing
 ----------
 
-```
-git clone https://github.com/chadrik/noflo-runtime-websocket -b tests-decoupled
-cd noflo-runtime-websocket
-npm install
-```
+1. Install [Node.js](http://nodejs.org/).
+
+2. Install the grunt command-line tools:
+
+    ```
+    sudo npm install -g grunt-cli
+    ```
+
+3. Clone this package and install its dependencies:
+
+    ```
+    git clone https://github.com/chadrik/noflo-runtime-websocket -b tests-decoupled
+    cd noflo-runtime-websocket
+    npm install
+    ```
 
 testing a runtime
 -----------------
@@ -26,8 +36,8 @@ testing a runtime
   )
   ```
 
-2. Start your runtime.
-3. Run the test:
+2. Start your runtime's websocket server.
+3. Run the tests:
 
   ```
   npm tests
