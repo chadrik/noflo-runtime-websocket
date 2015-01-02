@@ -177,7 +177,7 @@ describe 'WebSocket network runtime', ->
             id: 'Bar'
             metadata: {}
             graph: 'foo'
-      describe 'will a null value removes it from the node', ->
+      describe 'with a null value removes it from the node', ->
         it 'should merge the metadata', (done) ->
           expects = [
             protocol: 'graph'
@@ -315,6 +315,32 @@ describe 'WebSocket network runtime', ->
         send 'graph', 'addnode',
           id: 'Foo'
           component: 'core/Repeat'
+    describe 'adding a group to the graph', ->
+      it 'should add the group', (done) ->
+        expects = [
+          protocol: 'graph',
+          command: 'addgroup',
+          payload:
+            name: 'Group1'
+            nodes: ['Baz']
+            graph: 'foo'
+        ]
+        receive expects, done
+        send 'graph', 'addgroup', expects[0].payload
+    describe 'adding an in-port to the graph', ->
+      it 'should add the port', (done) ->
+        expects = [
+          protocol: 'graph',
+          command: 'error',
+          payload:
+            message: 'No graph specified'
+        ]
+        receive expects, done
+        send 'graph', 'addinport',
+          graph: 'foo'
+          public: 'in'
+          node: 'Foo'
+          port: 'in'
     # TODO:
     # ports:
     #   addinport / removeinport / renameinport
