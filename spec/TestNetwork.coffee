@@ -1,10 +1,11 @@
-runtime = require '../runtime/network.js'
-http = require 'http'
 tests = require './network'
-path = require 'path'
 
 # example of testing a websocket runtime based on nodejs (e.g. noflo):
 ###
+runtime = require '../runtime/network.js'
+http = require 'http'
+path = require 'path'
+
 server = null
 tests.testRuntime( 'noflo-nodejs',
   (connectClient) ->
@@ -32,6 +33,7 @@ tests.testRuntime( 'protoflo',
 # example testing a websocket runtime by starting a server process (WIP):
 ###
 spawn = require('child_process').spawn
+
 child = null
 tests.testRuntime( 'protoflo',
   (connectClient) ->

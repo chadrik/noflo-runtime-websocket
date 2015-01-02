@@ -1,6 +1,4 @@
 chai = require 'chai'
-runtime = require '../runtime/network.js'
-http = require 'http'
 path = require 'path'
 WebSocketClient = require('websocket').client
 
